@@ -71,7 +71,7 @@ const Homepage = () => {
     }, [])
   
     const fetchFolders = async () => {
-      const res = await fetch('http://127.0.0.1:8000/backend/folder-list',{
+      const res = await fetch('/backend/folder-list',{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ const Homepage = () => {
     }
   
     const fetchTags = async () => {
-      const res = await fetch('http://127.0.0.1:8000/backend/tag-list',{
+      const res = await fetch('/backend/tag-list',{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -104,7 +104,7 @@ const Homepage = () => {
     }
   
     const fetchBookmarks = async () => {
-      const res = await fetch('http://127.0.0.1:8000/backend/bookmark-list',{
+      const res = await fetch('/backend/bookmark-list',{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ const Homepage = () => {
     }
   
     const folder_bookmark = async (id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/folder-detail/${id}`,{
+      const res = await fetch(`/backend/folder-detail/${id}`,{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -154,7 +154,7 @@ const Homepage = () => {
     }
   
     const tag_bookmark = async (id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/tag-detail/${id}`,{
+      const res = await fetch(`/backend/tag-detail/${id}`,{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -186,7 +186,7 @@ const Homepage = () => {
     }
   
     const onDeletebookmark = async (id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/bookmark-delete/${id}`,{
+      const res = await fetch(`/backend/bookmark-delete/${id}`,{
         method:'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -214,7 +214,7 @@ const Homepage = () => {
   
 
     const tag_filter = async(id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/tag-detail/${id}`,{
+      const res = await fetch(`/backend/tag-detail/${id}`,{
         method:'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ const Homepage = () => {
     }
 
     const add_task = async (page_url,folder,tag) => {
-        // fetch(`http://127.0.0.1:8000/backend/bookmark-create/?page_url=${page_url}`, {
+        // fetch(`/backend/bookmark-create/?page_url=${page_url}`, {
         //     method: 'POST',
         //     headers: {
         //         'Content-type': 'application/json',
@@ -249,7 +249,7 @@ const Homepage = () => {
         setAddbutton_submit(true)
         setLoader(true)
 
-        const res = await fetch('http://127.0.0.1:8000/backend/bookmark-create/', {
+        const res = await fetch('/backend/bookmark-create/', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -283,7 +283,7 @@ const Homepage = () => {
     }
 
     const update_bookmark = async (bookmark_title,bookmark_description,bookmark_folder,bookmark_tag) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/bookmark-update/${edit_id}`, {
+      const res = await fetch(`/backend/bookmark-update/${edit_id}`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
@@ -323,7 +323,7 @@ const Homepage = () => {
       console.log("create tag")
       setShow_new_tag(false)
 
-      const res = await fetch('http://127.0.0.1:8000/backend/tag-create/', {
+      const res = await fetch('/backend/tag-create/', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -347,7 +347,7 @@ const Homepage = () => {
      
       setShow_new_folder(false)
 
-      const res = await fetch('http://127.0.0.1:8000/backend/folder-create/', {
+      const res = await fetch('/backend/folder-create/', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -371,7 +371,7 @@ const Homepage = () => {
       console.log("update tag")
       setShow_new_tag(false)
 
-      const res = await fetch(`http://127.0.0.1:8000/backend/tag-update/${id}`, {
+      const res = await fetch(`/backend/tag-update/${id}`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -396,7 +396,7 @@ const Homepage = () => {
       console.log("update folder")
       setShow_new_folder(false)
 
-      const res = await fetch(`http://127.0.0.1:8000/backend/folder-update/${id}`, {
+      const res = await fetch(`/backend/folder-update/${id}`, {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -418,7 +418,7 @@ const Homepage = () => {
     }
 
     const onDeletetag = async (id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/tag-delete/${id}`,{
+      const res = await fetch(`/backend/tag-delete/${id}`,{
         method:'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -436,7 +436,7 @@ const Homepage = () => {
     }
 
     const onDeletefolder = async (id) => {
-      const res = await fetch(`http://127.0.0.1:8000/backend/folder-delete/${id}`,{
+      const res = await fetch(`/backend/folder-delete/${id}`,{
         method:'DELETE',
         headers: {
           'Content-Type': 'application/json',
