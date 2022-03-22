@@ -27,7 +27,7 @@ const Registerpage = () => {
         const data = await response.json()
         
         if (response.status === 201) {
-            alert("Your user registration was successful. Please go to " +data.email+" and verify your email.")
+            alert("Your user registration was successful. You can now log into your account.")
         } else {
             
             if (data.username === undefined) {
