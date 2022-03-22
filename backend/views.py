@@ -421,10 +421,11 @@ class RegisterView(generics.GenericAPIView):
 #             if not user.is_verified:
 #                 user.is_verified = True
 #                 user.save()
+#                 print("abc")
 #                 request.session['pp_verifyemail'] = True
 #                 if 'pp_verifyemail' in request.session:
 #                     del request.session['pp_verifyemail']
-#                     return HttpResponseRedirect('http://localhost:3000/login')
+#                     return HttpResponseRedirect('/login')
 #         except jwt.ExpiredSignatureError as identifier:
 #             return Response({'error':'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
 #         except jwt.exceptions.DecodeError as identifier:
