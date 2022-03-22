@@ -25,14 +25,16 @@ const Registerpage = () => {
             body:JSON.stringify({'username':e.target.username.value, 'email':e.target.email.value, 'password':e.target.password.value})
         })
         const data = await response.json()
-        
+        console.log(data)
         if (response.status === 201) {
             alert("Your user registration was successful. You can now log into your account.")
         } else {
             
             if (data.username === undefined) {
                 alert("Email:"+data.email)
-            } else {
+            } else if(data.email === undefined) {
+                alert("Username:"+data.username)
+            }  else {
                 alert("Email:"+data.email)
                 alert("Username:"+data.username)
             }

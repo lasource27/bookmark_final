@@ -9,6 +9,7 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 
 
+
 import requests
 from requests import get
 from bs4 import BeautifulSoup
@@ -396,6 +397,8 @@ class RegisterView(generics.GenericAPIView):
         serializer.save()
         user_data = serializer.data
 
+        
+
         # user = User.objects.get(email=user_data['email'])
         # token = RefreshToken.for_user(user).access_token
         # current_site = get_current_site(request).domain
@@ -404,25 +407,25 @@ class RegisterView(generics.GenericAPIView):
         # email_body = 'Hi '+user.username + ', use Link below to verify your email \n'+ absurl
         # data ={'email_body':email_body, 'email_subject': 'Verify your email', 'to_email':user.email }
         # Util.send_email(data)
-
+        print(user_data)
         return Response(user_data, status=status.HTTP_201_CREATED)
 
-class VerifyEmail(generics.GenericAPIView):
-    def get(self,request):
-        token = request.GET.get('token')
-        try:
-            print('x')
-            payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
-            print('y')
-            user = User.objects.get(id=payload['user_id'])
-            if not user.is_verified:
-                user.is_verified = True
-                user.save()
-                request.session['pp_verifyemail'] = True
-                if 'pp_verifyemail' in request.session:
-                    del request.session['pp_verifyemail']
-                    return HttpResponseRedirect('http://localhost:3000/login')
-        except jwt.ExpiredSignatureError as identifier:
-            return Response({'error':'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
-        except jwt.exceptions.DecodeError as identifier:
-            return Response({'error':'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
+# class VerifyEmail(generics.GenericAPIView):
+#     def get(self,request):
+#         token = request.GET.get('token')
+#         try:
+#             print('x')
+#             payload = jwt.decode(token, settings.SECRET_KEY, algorithms=["HS256"])
+#             print('y')
+#             user = User.objects.get(id=payload['user_id'])
+#             if not user.is_verified:
+#                 user.is_verified = True
+#                 user.save()
+#                 request.session['pp_verifyemail'] = True
+#                 if 'pp_verifyemail' in request.session:
+#                     del request.session['pp_verifyemail']
+#                     return HttpResponseRedirect('http://localhost:3000/login')
+#         except jwt.ExpiredSignatureError as identifier:
+#             return Response({'error':'Activation Expired'}, status=status.HTTP_400_BAD_REQUEST)
+#         except jwt.exceptions.DecodeError as identifier:
+#             return Response({'error':'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
