@@ -8,6 +8,8 @@
 # testing
 /frontend/coverage
 
+/static
+
 # misc
 .DS_Store
 .env.local
