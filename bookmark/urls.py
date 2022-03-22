@@ -24,4 +24,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('backend/', include('backend.urls')),
     path('', TemplateView.as_view(template_name='index.html')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
