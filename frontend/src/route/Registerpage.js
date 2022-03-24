@@ -29,14 +29,19 @@ const Registerpage = () => {
         if (response.status === 201) {
             alert("Your user registration was successful. You can now log into your account.")
         } else {
-            
-            if (data.username === undefined) {
+            if (data.username == null && data.email == null) {
+                console.log("here1")
+                alert(data.non_field_errors)
+            } else if (data.username === undefined) {
+                console.log("here3")
                 alert("Email:"+data.email)
             } else if(data.email === undefined) {
+                console.log("here4")
                 alert("Username:"+data.username)
             }  else {
                 alert("Email:"+data.email)
                 alert("Username:"+data.username)
+                console.log("here2")
             }
         }
         console.log("data:",data, response.status)

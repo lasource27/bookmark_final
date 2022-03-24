@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useHistory } from "react"
 import { Link } from 'react-router-dom'
 import AuthContext from '../context/AuthContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,6 +12,9 @@ const Loginpage = () => {
 
     const {user} = useContext(AuthContext)
     const {loginUser} = useContext(AuthContext)
+    // const history = useHistory()
+
+    // useEffect(() => {if (user) return <Redirect to={"/"}/>},[])
     return (
         <div className="identity_page login_page">
             <div className="identity_image"></div>
