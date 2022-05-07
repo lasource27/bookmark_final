@@ -31,7 +31,7 @@ DEBUG = True
 
 
 
-ALLOWED_HOSTS = ['website-bookmark.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['web-app-bookmark.herokuapp.com', '127.0.0.1']
 
 AUTH_USER_MODEL = 'backend.User'
 
